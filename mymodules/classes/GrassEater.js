@@ -98,4 +98,4 @@ class GrassEater extends LivingCreature {
             matrix[this.y][this.x] = 0
         }
     }
-}   
+}
