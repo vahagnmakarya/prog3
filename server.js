@@ -9,6 +9,14 @@ app.get('/', function (req, res) {
 
 server.listen(3000);
 
+stat = {
+   grass: 0,
+   grasseater: 0,
+   gisatich: 0,
+   hzorgisatich: 0,
+   tunavorMichat: 0,
+}
+
 matrix = [];
 grassArr = [];
 grassEaterArr = [];
@@ -49,24 +57,46 @@ function createObjects() {
       }
    }
 }
+function clear() {
+   console.log('asdadasdasdasdsad')
+   matrix = [];
+   grassArr = [];
+   grassEaterArr = [];
+   gisatichArr = [];
+   hzorgisatichArr = [];
+   tunavorMichatArr = [];
+
+   io.sockets.emit("send matrix", matrix);
+}
+
+io.sockets.emit("clear", clear());
+
 
 function work() {
    for (var i = 0; i < grassArr.length; i++) {
       grassArr[i].mul();
    }
+   stat.grass = i;
    for (var i = 0; i < grassEaterArr.length; i++) {
       grassEaterArr[i].eat();
    }
+   stat.grasseater = i;
    for (var i = 0; i < gisatichArr.length; i++) {
       gisatichArr[i].eat();
    }
+   stat.gisatich = i;
    for (var i = 0; i < hzorgisatichArr.length; i++) {
       hzorgisatichArr[i].eat();
    }
+   stat.hzorgisatich = i;
    for (var i = 0; i < tunavorMichatArr.length; i++) {
       tunavorMichatArr[i].eat();
    }
+   stat.tunavorMichat = i;
 
+
+
+   io.sockets.emit("grass", stat);
    io.sockets.emit("send matrix", matrix);
 
 }
@@ -83,10 +113,14 @@ function generateMatrix(size) {
    return matrix;
 }
 
+
+
 matrix = generateMatrix(35);
 
 io.on('connection', function (socket) {
    createObjects()
-   setInterval(work, 1000)
+   setInterval(work, 600)
 
 });
+
+

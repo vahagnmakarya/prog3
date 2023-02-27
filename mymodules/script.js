@@ -1,20 +1,14 @@
 var socket = io();
 
 
-
-// function handlegrass(grass) {
-//     console.log(grass);
-// }
-
 socket.on('send matrix', drawing);
-// socket.on("send grass", handlegrass);
 
 
 var side = 27;
 
 function setup() {
     frameRate(4);
-    createCanvas(side * 25, side * 25);
+    createCanvas(side * 35, side * 35);
     background('#acacac');
 }
 
@@ -37,11 +31,27 @@ function drawing(matrix) {
                 fill('black');
             }
             else {
-                fill('#acacac');
+                fill('#acacac')
             }
             rect(side * x, side * y, side, side)
         }
-
     }
-
 }
+
+socket.on('grass', stats)
+
+function stats(stat){
+    document.getElementById('grass').innerHTML = stat.grass
+    document.getElementById('grasseater').innerHTML = stat.grasseater
+    document.getElementById('gisatich').innerHTML = stat.gisatich
+    document.getElementById('hzorgisatich').innerHTML = stat.hzorgisatich
+    document.getElementById('tunavormichat').innerHTML = stat.tunavorMichat
+ } 
+
+
+  function SendEventToKill(){
+    console.log('asdsadasdasd');
+    socket.on('clear')
+ }
+
+ //
