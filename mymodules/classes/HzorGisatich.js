@@ -22,7 +22,6 @@ module.exports = class HzorGisatich extends LivingCreature {
     }
     mul() {
         var emptyCells = this.chooseCell(0);
-        // var newCell = random(emptyCells);
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell && this.energy >= 12) {
@@ -38,7 +37,6 @@ module.exports = class HzorGisatich extends LivingCreature {
     }
     move() {
         var emptyCells = this.chooseCell(0);
-        // var newCell = random(emptyCells);
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             var newX = newCell[0];
@@ -57,7 +55,6 @@ module.exports = class HzorGisatich extends LivingCreature {
         var emptyCellsGisatich = this.chooseCell(3);
         var emptyCellsGrass = this.chooseCell(1);
         var emptyCells = emptyCellsGisatich.concat(emptyCellsGrass)
-        // var newCell = random(emptyCells);
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             var newX = newCell[0];

@@ -22,7 +22,7 @@ module.exports = class TunavorMichat extends LivingCreature {
     }
     mul() {
         var emptyCells = this.chooseCell(0);
-        // var newCell = random(emptyCells);
+
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell && this.energy >= 12) {
@@ -37,7 +37,6 @@ module.exports = class TunavorMichat extends LivingCreature {
     }
     move() {
         var emptyCells = this.chooseCell(0);
-        // var newCell = random(emptyCells);
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             var newX = newCell[0];
@@ -55,7 +54,6 @@ module.exports = class TunavorMichat extends LivingCreature {
     eat() {
         var emptyCellsTunavorMichat = this.chooseCell(4);
         var emptyCells = emptyCellsTunavorMichat
-        // var newCell = random(emptyCells);
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             var newX = newCell[0];
@@ -83,9 +81,9 @@ module.exports = class TunavorMichat extends LivingCreature {
     }
     die() {
         if (this.energy <= 0) {
-            for (var i in TunavorMichat) {
-                if (this.x == tunavormichat[i].x && this.y == tunavormichat[i].y) {
-                    tunavormichat.splice(i, 1);
+            for (var i in tunavorMichatArr) {
+                if (this.x == tunavorMichatArr[i].x && this.y == tunavorMichatArr[i].y) {
+                    tunavorMichatArr.splice(i, 1);
                     break;
                 }
             }
@@ -93,4 +91,16 @@ module.exports = class TunavorMichat extends LivingCreature {
             matrix[this.y][this.x] = 0
         }
     }
+    // die() {
+    //     if (this.energy <= 0) {
+    //         for (var i in hzorgisatichArr) {
+    //             if (this.x == hzorgisatichArr[i].x && this.y == hzorgisatichArr[i].y) {
+    //                 hzorgisatichArr.splice(i, 1);
+    //                 break;
+    //             }
+    //         }
+
+    //         matrix[this.y][this.x] = 0
+    //     }
+    // }
 }

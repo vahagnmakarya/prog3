@@ -10,19 +10,32 @@
 </head>
 
 <body>
+	<div class="yndhanur">
 		<div class="statist">
 			<h3>Խոտ - <span id='grass'></span></h3>
 			<h3>Խոտակեր - <span id='grasseater'></span></h3>
 			<h3>Գիշատիչ - <span id='gisatich'></span></h3>
 			<h3>Հզոր Գիշատիչ - <span id='hzorgisatich'></span> </h3>
 			<h3>Թունավոր Միջատ - <span id='tunavormichat'></span> </h3>
-			<button id="KillButton" onclick="SendEventToKill()" class="button">Kill them all</button>
+			<button id="KillButton" onclick="SendEventToKill()" class="button1">Kill them all</button>
+			<div class="weather">
+				<a id = "spring" onclick="changespring()" class="button4" style="background-color:#16CC42">Spring</a>
+				<a id = "summer" onclick="changesummer()" class="button4" style="background-color:#A5BD1E">Summer</a>
+				<a id = "autumn" onclick="changeautumn()" class="button4" style="background-color:#FFA83F">Autumn</a>
+				<a id = "winter" onclick="changewinter()" class="button4" style="background-color:#78D6FF">Winter</a>
+			</div>
 		</div>
+		<div class="desc">
+			<h2>Գարնանը խոտը կանաչ է դառնում</h2>
+			<h2>Ամռանը խոտը դեղնականաչավուն է դառնում</h2>
+			<h2>Աշնանը խոտը նարնջագույն է դառնում է</h2>
+			<h2>Ձմռանը խոտը կապույտ է դառնում է</h2>
+		</div>
+	</div>
 	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
 
-	
 	
 
 </body>

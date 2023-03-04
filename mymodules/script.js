@@ -3,7 +3,6 @@ var socket = io();
 
 socket.on('send matrix', drawing);
 
-
 var side = 27;
 
 function setup() {
@@ -11,12 +10,13 @@ function setup() {
     createCanvas(side * 35, side * 35);
     background('#acacac');
 }
+grasscolor = "16CC42"
 
 function drawing(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                fill('green');
+                fill(grasscolor);
             }
             else if (matrix[y][x] == 2) {
                 fill('yellow');
@@ -40,18 +40,30 @@ function drawing(matrix) {
 
 socket.on('grass', stats)
 
-function stats(stat){
-    document.getElementById('grass').innerHTML = stat.grass
-    document.getElementById('grasseater').innerHTML = stat.grasseater
-    document.getElementById('gisatich').innerHTML = stat.gisatich
-    document.getElementById('hzorgisatich').innerHTML = stat.hzorgisatich
-    document.getElementById('tunavormichat').innerHTML = stat.tunavorMichat
- } 
+function stats(text) {
+    document.getElementById('grass').innerHTML = text.grass
+    document.getElementById('grasseater').innerHTML = text.grasseater
+    document.getElementById('gisatich').innerHTML = text.gisatich
+    document.getElementById('hzorgisatich').innerHTML = text.hzorgisatich
+    document.getElementById('tunavormichat').innerHTML = text.tunavorMichat
+}
 
 
-  function SendEventToKill(){
-    console.log('asdsadasdasd');
-    socket.on('clear')
- }
+function SendEventToKill() {
+    socket.emit("work clear", "ankap");
+}
 
- //
+
+function changespring() {
+    grasscolor = "#16CC42";
+}
+function changesummer() {
+    grasscolor = "#A5BD1E";
+}
+function changeautumn() {
+    grasscolor = "#FFA83F";
+}
+function changewinter() {
+    grasscolor = "#78D6FF";
+}
+

@@ -22,7 +22,6 @@ module.exports = class GrassEater extends LivingCreature {
     }
     mul() {
         var emptyCells = this.chooseCell(0);
-        // var newCell = random(emptyCells);
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell && this.energy >= 12) {
